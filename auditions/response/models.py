@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Question(models.Model):
-    ques_round = models.IntegerField(default=1)
+    ques_round = models.IntegerField(default=1,primary_key=True)
     types = [
         ('N','NORMAL'),
         ('I','IMAGE')
@@ -17,11 +17,11 @@ class Question(models.Model):
         return str(self.ques_round)
 
 class Response(models.Model):
-    question = models.OneToOneField(Question,on_delete=models.CASCADE)
-    user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
+    question = models.ForeignKey(Question,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     response = models.TextField()
 
     def __str__(self):
-        return "{} : {}".format(self.question.ques_round,self.user.first_name+self.user.last_name)
+        return "{} : {}".format(self.question.ques_round,self.user.first_name+' '+self.user.last_name)
 
 

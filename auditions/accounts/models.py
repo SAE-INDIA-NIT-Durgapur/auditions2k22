@@ -7,5 +7,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=CASCADE)
     curr_round = models.IntegerField(default=1)
     
+    def __str__(self):
+        return self.user.first_name + " " + self.user.last_name
 
 

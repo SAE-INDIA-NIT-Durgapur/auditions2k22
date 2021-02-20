@@ -31,7 +31,7 @@ def loginview(request):
         if(user is not None):
             if(user.is_active):
                 login(request,user)
-                return HttpResponse('Logged In successfully')
+                return redirect('index')
             else:
                 return HttpResponse('user Inactive')
         else:
@@ -41,4 +41,4 @@ def loginview(request):
 
 def logoutview(request):
     logout(request)
-    return redirect('register')
+    return redirect('login')
