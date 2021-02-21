@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     ## My Applications
     'accounts',
     'response',
+    'administrator',
 ]
 
 MIDDLEWARE = [

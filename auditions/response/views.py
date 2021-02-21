@@ -18,18 +18,16 @@ def get_question(request):
     try:
         question = Question.objects.get(ques_round = profile.curr_round)
     except:
-        return HttpResponse("Question does not exist")
+        if(profile.curr_round >= 5):
+            return render(request,'response/end.html')
     if(request.method == 'POST'):
-        response = Response(user = user)
+        response = Response(profile = profile)
         response.question = question
         response.response = request.POST["response"] ##Assuming form input name = response
         response.save()
         profile.curr_round += 1
         profile.save()
         return redirect('get-question')
-    else:
-        if(profile.curr_round >= 5):
-            return render(request,'response/end.html')
     if(question.question_type == 'N'):
         return render(request,'response/get_question.html',{'question':question})
     elif(question.question_type == 'I'):

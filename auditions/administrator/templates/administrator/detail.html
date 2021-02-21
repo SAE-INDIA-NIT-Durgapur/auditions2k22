@@ -1,0 +1,27 @@
+{% extends 'base3.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>Detail page</h2>
+  <h2>{{data.profile.user.first_name}} {{data.profile.user.last_name}}</h2>
+  <ul>
+    {% for i in data.response %}
+    <li>
+      <h5>{{i.question.ques_round}}</h5>
+    </li>
+    <li>
+      <h5>Question - {{i.question.text}}</h5>
+    </li>
+    <li>
+      <h5>Response - {{i.response}}</h5>
+    </li>
+
+    {% endfor %}
+  </ul>
+</div>
+<div class="container">
+  <h3>Response Form</h3>
+  
+</div>
+
+{% endblock %}

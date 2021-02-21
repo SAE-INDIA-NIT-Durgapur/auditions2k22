@@ -1,0 +1,34 @@
+{% extends 'base3.html' %}
+
+{% block content %}
+  <h2>Dashboard</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <h4>NOT EVALUATED</h4>
+        <ul>
+          {% for i in data.not_evaluated%}
+            <li><a href="{% url 'response_detail' i.id %}">{{i.user.first_name}} {{i.user.last_name}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-4">
+        <h4>EVALUATED</h4>
+        <ul>
+          {% for i in data.evaluated%}
+            <li><a href="{% url 'response_detail' i.id %}">{{i.user.first_name}} {{i.user.last_name}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-4">
+        <h4>ELIMINATED</h4>
+        <ul>
+          {% for i in data.eliminated%}
+            <li><a href="{% url 'response_detail' i.id %}">{{i.user.first_name}} {{i.user.last_name}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
