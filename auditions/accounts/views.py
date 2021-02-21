@@ -7,6 +7,11 @@ from .forms import RegisterForm
 from .models import Profile
 
 # Create your views here.
+
+def index(request):
+    return render(request,'accounts/index.html')
+
+
 def registerview(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
