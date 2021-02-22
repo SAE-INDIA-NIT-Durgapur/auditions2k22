@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from accounts.models import Profile
 from response.models import Response
+from .models import Comment
 
 # Create your views here.
 
@@ -18,6 +19,18 @@ def response_detail(request,id):
     profile = Profile.objects.get(id = id)
     response = Response.objects.filter(profile = profile)
     data = {}
+    if request.method == 'POST':
+        comment_obj = Comment(profile = profile)
+        comment_obj.author = request.POST['author']
+        comment_obj.comment = request.POST['comment']
+        comment_obj.save()
+        profile.current_status = 2
+        profile.save()
+    try:
+        comments = Comment.objects.filter(profile=profile).order_by('-date_time')
+        data['reviews'] = comments
+    except:
+        data['reviews'] = []
     data['profile'] = profile
     data['response'] = response
     return render(request,'administrator/detail.html',{'data':data})

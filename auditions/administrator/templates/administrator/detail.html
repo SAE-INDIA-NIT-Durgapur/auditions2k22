@@ -2,25 +2,65 @@
 
 {% block content %}
 <div class="container">
-  <h2>Detail page</h2>
-  <h2>{{data.profile.user.first_name}} {{data.profile.user.last_name}}</h2>
-  <ul>
+  <div class="card">
+    <h4 class="card-header">
+      Personal Info
+    </h4>
+    <div class="card-body">
+      <h5 class="card-title">{{data.profile.user.first_name}} {{data.profile.user.last_name}}</h5>
+      <p class="card-text">Email - {{data.profile.user.email}}</p>
+      <p class="card-text">Phone Number - ########## <---- YET TO BE DONE</p>
+
+    </div>
+  </div>
+  <ul style="list-style:none ;margin:0;padding:0">
     {% for i in data.response %}
     <li>
-      <h5>{{i.question.ques_round}}</h5>
+      <div class="card">
+        {% if i.question.image%}
+          <img src="{{i.question.image.url}}" class="card-img-top" alt="question_image">
+        {% endif %}
+        <h6 class="card-header">
+          Question - {{i.question.ques_round}}
+        </h6>
+        <div class="card-body">
+          <h6 class="card-text">{{i.question.text}}</h6>
+          <p class="card-title">Response - {{i.response}}</p>
+        </div>
+      </div>
     </li>
-    <li>
-      <h5>Question - {{i.question.text}}</h5>
-    </li>
-    <li>
-      <h5>Response - {{i.response}}</h5>
-    </li>
-
-    {% endfor %}
+   {% endfor %}
   </ul>
 </div>
 <div class="container">
-  <h3>Response Form</h3>
+  <h3>Review Form</h3>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Your Name</label>
+      <input type="text" class="form-control" name="author">
+      <div class="form-text">Use your full name .</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Review</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="comment"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Review</button>
+  </form>
+  <h3>Past Reviews</h3>
+  {% for review in data.reviews %}
+    <div class="card text-center">
+      <div class="card-header">
+        {{review.author}}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{review.comment}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        {{review.date_time}}
+      </div>
+    </div>
+  {% endfor %}
   
 </div>
 
