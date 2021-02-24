@@ -38,14 +38,14 @@
     {% csrf_token %}
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Your Name</label>
-      <input type="text" class="form-control" name="author">
+      <input id = "namefield" type="text" class="form-control" name="author">
       <div class="form-text">Use your full name .</div>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Review</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="comment"></textarea>
+      <textarea id = "commentfield" class="form-control" id="exampleFormControlTextarea1" rows="4" name="comment"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit Review</button>
+    <button id="button" type="submit" class="btn btn-primary">Submit Review</button>
   </form>
   <h3>Past Reviews</h3>
   {% for review in data.reviews %}
