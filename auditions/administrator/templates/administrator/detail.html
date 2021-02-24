@@ -37,13 +37,22 @@
   <form method="POST">
     {% csrf_token %}
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Your Name</label>
-      <input id = "namefield" type="text" class="form-control" name="author">
-      <div class="form-text">Use your full name .</div>
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input id = "namefield" type="text" class="form-control" name="author" placeholder="Your Name Here ..">
+      <small class="form-text text-muted">
+        Please use your real and full name .
+      </small>
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Review</label>
-      <textarea id = "commentfield" class="form-control" id="exampleFormControlTextarea1" rows="4" name="comment"></textarea>
+      <textarea id = "commentfield" class="form-control" rows="4" name="comment" placeholder="Your Comment Here .."></textarea>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" name="eliminate">
+      <label class="form-check-label" >Eliminate Participant !</label>
+      <small class="form-text text-muted">
+        If you check this box this participant will be permanently eliminated.
+      </small>
     </div>
     <button id="button" type="submit" class="btn btn-primary">Submit Review</button>
   </form>
