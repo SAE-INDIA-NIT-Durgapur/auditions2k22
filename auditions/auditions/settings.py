@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'accounts',
     'response',
     'administrator',
+    ##Social
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '982058987369-9rslalnetf7ed9ioeib6afptacukp56l.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '5_Q8h9m6Vkxl5DHVC7Ae0Zvz'
+
+LOGIN_URL = '/auth/login/google-oauth2/'
+
+LOGIN_REDIRECT_URL = '/response'
+LOGOUT_REDIRECT_URL = ''
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
