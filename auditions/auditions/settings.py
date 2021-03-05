@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    ## My Applications
+    # My Applications
     'accounts',
     'response',
     'administrator',
-    ##Social
+    # Social
     'social_django',
 ]
 
@@ -139,3 +139,8 @@ LOGIN_REDIRECT_URL = '/response'
 LOGOUT_REDIRECT_URL = ''
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+
+]
