@@ -1,14 +1,49 @@
 {% extends 'base.html' %}
 {% block title %}Question{% endblock title %}
+{% block styles %}
+<style>
+  h1,
+  h3 {
+    color: blanchedalmond
+  }
 
+  .classOfElements {
+    text-align: center;
+    vertical-align: middle;
+    top: 20%;
+  }
+
+  .auditionbtn {
+    text-align: center;
+    margin: 0px;
+  }
+
+  @media(max-width:768px) {
+    .classOfElements {
+      top: 0%;
+    }
+
+    .auditionbtn {
+      margin-top: -25%;
+    }
+  }
+
+  #response {
+    width: 50%;
+    height: 40px;
+  }
+</style>
+{% endblock styles %}
 {% block content %}
-<h2>Get Question</h2>
-<form method="post">
-  {% csrf_token %}
-  <h1>{{question}}</h1>
-  <h2>{{question.text}}</h2>
-  <label for="response">Response</label>
-  <input type="text" name="response">
-  <button type="submit">Submit</button>
-</form>
+<div class="classOfElements">
+  <h1>Get Question</h1>
+  <form method="post">
+    {% csrf_token %}
+    <h3>{{question}}</h3>
+    <h3>{{question.text}}</h3>
+    <label for="response"></label>
+    <textarea rows="4" type="text" name="response" id="response"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 {% endblock %}
