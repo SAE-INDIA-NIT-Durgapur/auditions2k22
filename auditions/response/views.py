@@ -28,7 +28,8 @@ def get_question(request):
         profile.curr_round += 1
         profile.save()
         return redirect('get-question')
+    time_data = profile.get_completion_time()
     if(question.question_type == 'N'):
-        return render(request,'response/get_question.html',{'question':question})
+        return render(request,'response/get_question.html',{'question':question,'time':time_data})
     elif(question.question_type == 'I'):
-        return render(request,'response/get_question_image.html',{'question':question})
+        return render(request,'response/get_question_image.html',{'question':question,'time':time_data})
