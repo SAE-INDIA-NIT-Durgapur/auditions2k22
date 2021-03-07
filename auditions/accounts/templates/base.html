@@ -11,13 +11,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link rel="icon" type="image/png" href="/static/response/images/favicon.png">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
         }
+        .fufu{
+            text-align: center;;
+        }
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
 
+        /* Add a hover effect if you want */
+        .fa:hover {
+        opacity: 0.7;
+        }
+
+       
         body {
             height: 100vh;
         }
@@ -47,6 +63,10 @@
         a {
             text-decoration: none;
             color: blanchedalmond;
+        }
+        #txtbox{
+        height: 80px;
+        width : 1000px;
         }
 
         .btn10 {
@@ -155,9 +175,36 @@
 
             .mytext {
                 top: 20%
+                
             }
 
         }
+        .question{
+            margin-left: 200px;
+            margin-right: 300px;
+        }
+        .brand-logo {
+    margin-top: -80px;
+    color: #fff;
+    display: inline-block;
+    font-size: 2.1rem;
+    padding: 0;
+    white-space: nowrap;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 6px #292736, 0 0 8px #292736, 0 0 10px #292736, 0 0 12px #292736, 0 0 14px #292736;
+    animation: glow .59s infinite alternate;
+}
+
+/* Animation as suggested by Ismail Ghallou */
+@keyframes glow {
+    to {
+     text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #d25ed4, 0 0 16px #d25ed4, 0 0 20px #d25ed4, 0 0 24px #d25ed4, 0 0 28px #d25ed4;
+    }
+  }
+  .brand-logo{
+          text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 6px #292736, 0 0 8px #292736, 0 0 10px #292736, 0 0 12px #292736, 0 0 14px #292736;
+          animation: glow .59s infinite alternate;
+  }
     </style>
     {% block styles %}
     {% endblock styles %}
@@ -166,14 +213,33 @@
 
 <body id="back">
     {% if user.is_authenticated %}
-    <ul>
-        <li><a href="/logout/">Logout</a></li>
-        <li><a href="/response/">Home</a></li>
-    </ul>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background-color: #320b8f;"">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img class="logo" src="{% static 'response/images/favicon.png' %}" alt="">
+      
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="  ml-auto navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/logout/">LOGOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/response/">HOME</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     {% endif %}
     {% block content%}
 
     {% endblock %}
+    
 
 </body>
 <script src="{% static 'js/three.min.js' %}"></script>
