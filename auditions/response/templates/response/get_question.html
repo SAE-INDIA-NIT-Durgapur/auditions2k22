@@ -2,7 +2,117 @@
 {% block title %}Question{% endblock title %}
 {% block styles %}
 <style>
-  h1,
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+  background: url('https://www.electrichybridvehicletechnology.com/wp-content/uploads/2020/10/AdobeStock_266056847-cropped.jpeg') no-repeat top center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.wrapper{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 550px;
+  background: rgba(0,0,0,0.6);
+  padding: 30px;
+
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.wrapper .title h1{
+  font-size:15px;
+  color: #c5ecfd;
+  text-align: left;
+  overflow: hidden;
+   -moz-hyphens:auto;
+-ms-hyphens:auto;
+-webkit-hyphens:auto;
+hyphens:auto;
+word-wrap:break-word;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.contact-form{
+  display: flex;
+}
+
+.input-fields{
+
+  margin-right: 4%;
+}
+
+.input-fields,
+.msg{
+  width: 100%;
+}
+
+.input-fields .input,
+.msg textarea{
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #c5ecfd;
+  padding: 10px;
+  color: #c5ecfd;
+  width: 100%;
+}
+
+.msg textarea{
+  height: 212px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #c5ecfd;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #c5ecfd;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #c5ecfd;
+}
+
+.btn {
+    background: #6FDEFF;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px){
+  .contact-form{
+    flex-direction: column;
+  }
+  .msg textarea{
+    height: 80px;
+  }
+  .input-fields,
+  .msg{
+    width: 100%;
+  }
+}
+
+
+ /* h1,
   h3 {
     color: blanchedalmond
   }
@@ -79,14 +189,14 @@
 .qstn{
   margin-left:100px;
   margin-right: 100px;
-}
+}*/
 
 </style>
 {% endblock styles %}
 {% block content %}
-<h1>{{time}}</h1>
+
 <p id="demo" style="color: #fff;"></p>
-<div class="classOfElements">
+<!--<div class="classOfElements">
   <h1>Question</h1>
   <form method="post">
     {% csrf_token %}
@@ -101,6 +211,20 @@
       <button class="button1" type="submit">Submit</button>
     </div>
   </form>
+</div>-->
+
+    <div class="wrapper">
+
+  <div class="title">
+    <h1>{{ question.text }}</h1>
+  </div>
+  <div class="contact-form">
+   {% csrf_token %}
+    <div class="msg">
+      <textarea name="response" class="ans" placeholder="Answer"></textarea>
+      <div class="btn" type="submit">submit</div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -126,7 +250,7 @@
     // Display the result in the element with id="demo"
     document.getElementById("demo").innerHTML =  days + "d "+ hours + "h "
     + minutes + "m " + seconds + "s ";
-  
+
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(x);
