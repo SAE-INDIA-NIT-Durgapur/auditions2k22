@@ -33,3 +33,9 @@ def get_question(request):
         return render(request,'response/get_question.html',{'question':question,'time':time_data})
     elif(question.question_type == 'I'):
         return render(request,'response/get_question_image.html',{'question':question,'time':time_data})
+
+def timer_expired(request):
+    profile = Profile.objects.get(user = request.user)
+    profile.curr_round = 5
+    profile.save()
+    return redirect('get-question')

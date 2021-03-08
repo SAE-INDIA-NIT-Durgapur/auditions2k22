@@ -196,40 +196,26 @@ word-wrap:break-word;
 {% block content %}
 
 <p id="demo" style="color: #fff;"></p>
-<!--<div class="classOfElements">
-  <h1>Question</h1>
+<div class="wrapper">
+  <div class="contact-form">
   <form method="post">
     {% csrf_token %}
-    <h3>{{question}}</h3>
-    <div class="qstn"><br>
-    <h3>{{question.text}}</h3>
+    <div class="title">
+      <h1>{{ question.text }}</h1>
     </div>
-    <label for="response"></label>
-    <textarea rows="10" type="text" name="response" class="ans" id="txtbox"></textarea>
-    <br><br>
+    <div class="msg">
+      <textarea name="response" class="ans" placeholder="Answer"></textarea>
+    </div>
     <div class="center">
       <button class="button1" type="submit">Submit</button>
     </div>
   </form>
-</div>-->
-
-    <div class="wrapper">
-
-  <div class="title">
-    <h1>{{ question.text }}</h1>
-  </div>
-  <div class="contact-form">
-   {% csrf_token %}
-    <div class="msg">
-      <textarea name="response" class="ans" placeholder="Answer"></textarea>
-      <div class="btn" type="submit">submit</div>
-    </div>
-  </div>
+</div>
 </div>
 
 <script>
   // Set the date we're counting down to
-  var countDownDate = new Date({{time.year}},{{time.month}}, {{time.day}}, {{time.hours}},{{time.mins}}, {{time.seconds}}).getTime();
+  var countDownDate = new Date("{{time}}").getTime();
   
   // Update the count down every 1 second
   var x = setInterval(function() {
@@ -248,12 +234,13 @@ word-wrap:break-word;
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
   
     // Display the result in the element with id="demo"
-    document.getElementById("demo").innerHTML =  days + "d "+ hours + "h "
+    document.getElementById("demo").innerHTML =  hours + "h "
     + minutes + "m " + seconds + "s ";
 
     // If the count down is finished, write some text
-    if (distance < 0) {
+    if (distance > 0) {
       clearInterval(x);
+      window.location.replace('/response/timerexpired');
       document.getElementById("demo").innerHTML = "EXPIRED";
     }
     console.log(distance)

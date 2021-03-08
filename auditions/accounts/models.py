@@ -32,7 +32,8 @@ class Profile(models.Model):
             'mins': ist.minute,
             'seconds':ist.second
         }
-        return date_data
+        js_date_string = "{} {}, {} {}:{}:{}".format(date_data['month'],date_data['day'],date_data['year'],date_data['hours'],date_data['mins'],date_data['seconds'])
+        return js_date_string
 
 
 from django.dispatch import receiver
