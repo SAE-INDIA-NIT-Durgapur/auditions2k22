@@ -7,10 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/static/response/images/favicon.png">
+    <link rel="icon" type="image/png" href="/static/response/images/bluelogo2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         * {
@@ -38,10 +37,118 @@
             height: 100vh;
         }
 
-        h1 {
-            font-family: monospace;
-        }
+       /*mynav*/
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+nav{
+  background: #1b1b1b;
+}
+nav:after{
+  content: '';
+  clear: both;
+  display: table;
+}
+nav .logo{
+  float: left;
+  color: white;
+  font-size: 27px;
+  padding-top: 10px;
+  font-weight: 600;
+  line-height: 70px;
+  padding-left: 60px;
+}
+nav ul{
+  float: right;
+  margin-right: 40px;
+  list-style: none;
+  position: relative;
+}
+nav ul li{
+  float: left;
+  display: inline-block;
+  background: #1b1b1b;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: white;
+  line-height: 70px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 15px;
+}
+nav ul li a:hover{
+  color: cyan;
+  border-radius: 5px;
+  box-shadow:  0 0 5px #33ffff,
+               0 0 10px #66ffff;
+}
 
+.show,.icon,input{
+  display: none;
+}
+.fa-plus{
+  font-size: 15px;
+  margin-left: 40px;
+}
+@media all and (max-width: 968px) {
+  nav ul{
+    margin-right: 0px;
+    float: left;
+  }
+  nav .logo{
+    padding-left: 30px;
+    width: 100%;
+  }
+  .show + a, ul{
+    display: none;
+  }
+  nav ul li,nav ul ul li{
+    display: block;
+    width: 100%;
+  }
+  nav ul li a:hover{
+    box-shadow: none;
+  }
+  .show{
+    display: block;
+    color: white;
+    font-size: 18px;
+    padding: 0 20px;
+    line-height: 70px;
+    cursor: pointer;
+  }
+  .show:hover{
+    color: cyan;
+  }
+  .icon{
+    display: block;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    line-height: 70px;
+    cursor: pointer;
+    font-size: 25px;
+  }
+  nav ul ul{
+    top: 70px;
+    border-top: 0px;
+    float: none;
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  [id^=btn]:checked + ul{
+    display: block;
+  }
+  nav ul ul li{
+    border-bottom: 0px;
+  }
+  span.cancel:before{
+    content: '\f00d';
+  }
+}
         .mytext {
             color: blanchedalmond;
             text-align: center;
@@ -213,28 +320,25 @@
 
 <body id="back">
     {% if user.is_authenticated %}
-    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background-color: #320b8f;"">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img class="logo" src="{% static 'response/images/favicon.png' %}" alt="">
-      
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul class="  ml-auto navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/logout/">LOGOUT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/response/">HOME</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+        <nav>
+         <div class="logo">
+            <img style="width:100;height:50px;"  src="{% static 'response/images/bluelogo2.png' %}">
+         </div>
+         <label for="btn" class="icon">
+         <span class="fa fa-bars"></span>
+         </label>
+         <input type="checkbox" id="btn">
+         <ul>
+            <li><a href="/response/">Home</a></li>
+            <li><a href="/logout/">Logout</a></li>
+         </ul>
+      </nav>
+      <script>
+         $('.icon').click(function(){
+           $('span').toggleClass("cancel");
+         });
+      </script>
     {% endif %}
     {% block content%}
 
@@ -244,21 +348,7 @@
 </body>
 <script src="{% static 'js/three.min.js' %}"></script>
 <script src="{% static 'js/cells.js' %}"></script>
-<script>
-    VANTA.CELLS({
-        el: "#back",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 900.00,
-        minWidth: 100.00,
-        scale: 1.00,
-        color1: 0x2b2b95,
-        color2: 0x1b26cc,
-        size: 4.40,
-        speed: 5.00
-    })
-</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
