@@ -88,8 +88,9 @@ word-wrap:break-word;
   color: #c5ecfd;
 }
 
-.btn {
+button{
     background: #6FDEFF;
+    width:100%;
     text-align: center;
     padding: 15px;
     border-radius: 5px;
@@ -111,6 +112,24 @@ word-wrap:break-word;
   }
 }
 
+
+/*timer styling*/
+
+#demo{
+    align-items: center;
+    justify-content: center;
+    margin-left: 40%;
+    font-size: 250%;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    font-weight: 800;
+}
+@media (max-width: 500px)
+{
+    #demo{
+        font-size: 200%;
+        margin-left: 20%;
+    }
+}
 
  /* h1,
   h3 {
@@ -207,7 +226,7 @@ word-wrap:break-word;
       <textarea name="response" class="ans" placeholder="Answer"></textarea>
     </div>
     <div class="center">
-      <button class="button1" type="submit">Submit</button>
+      <button class="button1" class="btn" type="submit">Submit</button>
     </div>
   </form>
 </div>
@@ -238,7 +257,7 @@ word-wrap:break-word;
     + minutes + "m " + seconds + "s ";
 
     // If the count down is finished, write some text
-    if (distance > 0) {
+    if (distance < 0) {
       clearInterval(x);
       window.location.replace('/response/timerexpired');
       document.getElementById("demo").innerHTML = "EXPIRED";
