@@ -45,21 +45,22 @@ body {
   text-shadow: 0 0 300px #000;
   margin-bottom:10px;
 }
-.content p{
+.rulebox p{
      font-family: 'Century Gothic',sans-serif;
   color: #f9f3f4;
     font-weight: 700;
-    margin: 0 25%;
+    margin: 5% 10%;
     text-align: center;
     justify-content: center;
   text-shadow: 0 0 300px #000;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
-@media (max-width: 500px)
-{
-    .content p{
-        margin:0 0;
-    }
+.rulebox{
+  background-color: rgba(0,0,0, 0.6);
+  width: 60vw;
+  margin-left: 20vw;
+  padding: 10px 0px 10px;
+  border-radius: 2%;
 }
 .content .btn{
   border-radius: 9px;
@@ -69,6 +70,7 @@ body {
   border: 3px solid;
   padding: 7px 100px;
   font-weight: bold;
+  margin-top: 10px;
 
 }
 .content .btn:hover{
@@ -82,7 +84,15 @@ body {
   }
   .content p{
     margin-bottom: 30px;
+    font-weight: 400;
   }
+  .rulebox{
+  background-color: rgba(0,0,0, 0.6);
+  width: 80vw;
+  margin-left: 10vw;
+  padding: 10px 0px 10px;
+  border-radius: 2%;
+}
 
 }
 
@@ -173,12 +183,14 @@ body {
   <div class="in1">
     <div class="content">
       <h1>SAE AUDITIONS</h1>
+      <div class="rulebox">
       <p>
         After you login you will have exactly two hours to answer all the questions after which all the responses will
         be auto submitted<br>
         Once you answer a question you cannot change it afterwards so fill up the responses carefully<br>
         The questions mentioned compulsory should not be left unanswered .
       </p>
+    </div>
 <a class="btn" href="/response/get_question/">START</a>
     </div>
 </div>
@@ -187,7 +199,7 @@ body {
     <div class="cursor2"></div>
 <footer>
         <div class="footer-content">
-            <h3>Created By Web Team</h3>
+            <h3>Created By SAE NIT Durgapur</h3>
             <ul class="socials">
                 <li><a href="https://www.facebook.com/SAENITD/"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="https://www.instagram.com/sae.nitd/"><i class="fa fa-instagram"></i></a></li>
