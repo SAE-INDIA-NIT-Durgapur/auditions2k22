@@ -131,6 +131,21 @@ button{
     }
 }
 
+
+.wrapper .title h2{
+  font-size:25px;
+  color: #c5ecfd;
+  text-align: center;
+  overflow: hidden;
+   -moz-hyphens:auto;
+-ms-hyphens:auto;
+-webkit-hyphens:auto;
+hyphens:auto;
+word-wrap:break-word;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
  /* h1,
   h3 {
     color: blanchedalmond
@@ -220,6 +235,7 @@ button{
   <form method="post">
     {% csrf_token %}
     <div class="title">
+         <h2>Question {{ question.ques_round }}</h2>
       <h1>{{ question.text }}</h1>
     </div>
     <div class="msg">
