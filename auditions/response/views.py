@@ -62,13 +62,14 @@ def questions(request):
             responses =Response.objects.create(profile=profile, question=i)
             responses.response=answer[str(i.ques_round)]
             responses.save()
-        profile.completed=True
+
+        profile.completed = True
         profile.save()
-        return render(request,'response/end.html')
+        return render(request, 'response/end.html')
     
     if profile.completed==True:
         return render(request,'response/end.html')
-
+    time_data = profile.get_completion_time()
     
-    return render(request,'response/q2.html', {'questionlist':questionlist, 'user':user})
+    return render(request,'response/q2.html', {'questionlist':questionlist, 'user':user,'time':time_data})
 
