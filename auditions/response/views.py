@@ -39,3 +39,36 @@ def timer_expired(request):
     profile.curr_round = 5
     profile.save()
     return redirect('get-question')
+
+def questions(request):
+    user= request.user
+    
+    profile = Profile.objects.get(user = user)
+    
+    question=Question.objects.all()
+    questionlist=[]
+    for i in question:
+        questionlist.append({
+            'round':i.ques_round,
+            'text':i.text,
+            'type':i.question_type,
+            'image':i.image,
+        })
+    if request.method=='POST':
+        answer=request.POST
+    
+        for i in question:
+            #question=Question.objects.get(ques=i.ques_round)
+            responses =Response.objects.create(profile=profile, question=i)
+            responses.response=answer[str(i.ques_round)]
+            responses.save()
+            profile.completed=True
+            profile.save()
+            return render(request,'response/end.html')
+    
+    if profile.completed==True:
+        return render(request,'response/end.html')
+
+    
+    return render(request,'response/q2.html', {'questionlist':questionlist, 'user':user})
+

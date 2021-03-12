@@ -18,6 +18,8 @@ class Profile(models.Model):
     curr_round = models.IntegerField(default=1)
     current_status = models.IntegerField(choices=status,default=1)
     created_at = models.DateTimeField(auto_now_add=True)
+    member= models.BooleanField(default=False)
+    completed=models.BooleanField(default=False)
     
     def __str__(self):
         return self.user.first_name + " " + self.user.last_name

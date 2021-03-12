@@ -1,0 +1,20 @@
+<html>
+    <title>New Set</title>
+    <body>
+        {{user}}
+        <form method="post" action="">
+            {% csrf_token %}
+        {% for i in questionlist %}
+            {{i.round}}<br>
+          
+            display image here<br>
+            
+            <input type="text" placeholder="answers" name={{i.round}}>
+            <br>
+
+        {% endfor %}
+        <br>
+        <input name="submit" type="submit">
+	</form>
+    </body>
+</html>
