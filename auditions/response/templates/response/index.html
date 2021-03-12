@@ -2,6 +2,9 @@
 {% load static %}
 {% block title %}Audition{% endblock title %}
 {% block content %}
+
+
+
   <style>
     @import url('https://fonts.googleapis.com/css?family=Roboto');
 
@@ -14,7 +17,7 @@
 }
 
 body {
-    background: url('https://www.electrichybridvehicletechnology.com/wp-content/uploads/2020/10/AdobeStock_266056847-cropped.jpeg') no-repeat top center;
+    background: url('{% static 'response/images/bg-1-SAE.webp' %}') no-repeat top center;
     background-size: cover;
     height: 100vh;
     overflow-y: hidden;
@@ -59,7 +62,7 @@ body {
   background-color: rgba(0,0,0, 0.6);
   width: 60vw;
   margin-left: 20vw;
-  margin-bottom:20px;
+    margin-bottom: 20px;
   padding: 10px 0px 10px;
   border-radius: 2%;
 }
@@ -94,6 +97,9 @@ body {
   padding: 10px 0px 10px;
   border-radius: 2%;
 }
+  .rulebox p{
+      font-size:11px;
+  }
 
 }
 
@@ -187,9 +193,15 @@ body {
       <div class="rulebox">
       <p>
         After you login you will have exactly two hours to answer all the questions after which all the responses will
-        be auto submitted<br>
-        Once you answer a question you cannot change it afterwards so fill up the responses carefully<br>
-        The questions mentioned compulsory should not be left unanswered .
+        be auto submitted.<br>
+        If you don’t want to answer a particular question, type NA and press submit.<br>
+        Once submitted you cannot return back to the question.<br>
+        Answer to the sections of your preferences:<br>
+        a) Questions 19 to 22 [ MANUAL ROBOTICS]<br>
+        b) Questions 23 to 25 [AUTONOMOUS ROBOTICS]<br>
+        c) Questions 26 to 30  [AUTOMOBILE]<br>
+        d) Questions 31 to 35 [CREATIVE DESIGN AND PHOTOGRAPHY]<br>
+        e) Questions 36 to 37 [WEB DEVELOPMENT]<br>
       </p>
     </div>
 <a class="btn" href="/response/get_question/">START</a>
