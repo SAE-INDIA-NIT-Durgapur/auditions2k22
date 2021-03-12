@@ -38,7 +38,7 @@ def timer_expired(request):
     profile = Profile.objects.get(user = request.user)
     profile.curr_round = 5
     profile.save()
-    return redirect('get-question')
+    return redirect('questions')
 
 def questions(request):
     user= request.user
