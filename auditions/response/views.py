@@ -62,9 +62,9 @@ def questions(request):
             responses =Response.objects.create(profile=profile, question=i)
             responses.response=answer[str(i.ques_round)]
             responses.save()
-            profile.completed=True
-            profile.save()
-            return render(request,'response/end.html')
+        profile.completed=True
+        profile.save()
+        return render(request,'response/end.html')
     
     if profile.completed==True:
         return render(request,'response/end.html')
