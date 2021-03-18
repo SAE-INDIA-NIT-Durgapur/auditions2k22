@@ -18,7 +18,7 @@ def get_question(request):
     try:
         question = Question.objects.get(ques_round = profile.curr_round)
     except:
-        if(profile.curr_round >= 5):
+        if(profile.curr_round > 37):
             return render(request,'response/end.html')
     if(request.method == 'POST'):
         response = Response(profile = profile)
@@ -35,10 +35,10 @@ def get_question(request):
         return render(request,'response/get_question_image.html',{'question':question,'time':time_data})
 
 def timer_expired(request):
-    profile = Profile.objects.get(user = request.user)
-    profile.curr_round = 5
+    profile = Profile.objects.get(user = request.user) 
+    profile.completed= True
     profile.save()
-    return redirect('questions')
+    return render(request,'response/end.html')
 
 def questions(request):
     user= request.user

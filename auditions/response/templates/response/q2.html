@@ -12,6 +12,7 @@
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
@@ -53,7 +54,10 @@ body {
     line-height: 1.4em;
     font-weight: 400;
     color: white;
-      background: url('{% static 'response/images/bg-1-SAE.webp' %}') ;
+      background: url('{% static 'response/images/bg-1-SAE.jpg' %}') ;
+      -moz-background-size:cover;
+      -o-background-size:cover;
+      -webkit-background-size:cover;
 }
 
 ::placeholder, select{
@@ -259,7 +263,7 @@ button {
                 <div class="form-section">
                     {% for i in questionlist %}
                         <label for="name">{{ i.round }}</label>
-                        <label for="name">{{ i.text }}</label>
+                        <label for="name">{{ i.text|linebreaks}}</label>
                         {% if i.type == 'I' %}
                             <img style="heigth:300px;width:200px;" src="{{ i.image.url }}">
                         {% endif %}
@@ -267,7 +271,7 @@ button {
                         <div class="msg">
                             <textarea placeholder="Answer" name={{ i.round }}></textarea>
                     {% endfor %}
-                    <button name="submit" type="submit">Submit</button>
+                    <button name="submit" id="foo" type="submit">Submit</button>
                     </div>
                 </div>
 
@@ -305,8 +309,9 @@ button {
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(x);
-      window.location.replace('/response/timerexpired');
       document.getElementById("demo").innerHTML = "EXPIRED";
+      document.querySelector("#foo").click();
+      console.log("Button Clicked");
     }
     console.log(distance)
 

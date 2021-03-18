@@ -14,8 +14,11 @@
 }
 
 body {
-     background: url('{% static 'response/images/bg-1-SAE.webp' %}') no-repeat top center;
+    background: url('{% static 'response/images/bg-1-SAE.webp' %}');
     background-size: cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    -webkit-background-size:cover;
     height: 100vh;
     overflow-y: hidden;
 }
