@@ -24,7 +24,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.first_name + " " + self.user.last_name
     def get_completion_time(self):
-        two_hours_from_now = self.created_at + timedelta(hours=2)
+        two_hours_from_now = self.created_at + timedelta(hours=3)
         ist = two_hours_from_now.astimezone(tz.tzlocal())
         date_data = {
             'year':ist.year,
