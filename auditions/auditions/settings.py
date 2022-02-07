@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '+703z7xgns-j+&t$%^&^@xw)x%q91cvg!5w35$$2f6_$v)5c(1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-
+git add .
 # Application definition
 
 INSTALLED_APPS = [
@@ -146,5 +146,5 @@ STATICFILES_DIRS = [
 
 ]
 
-MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
-MEDIA_URL= "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "/media/"
