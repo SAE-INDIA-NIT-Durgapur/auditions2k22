@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, response
-
+from .models import Response
 
 from .models import Question,Response
 from accounts.models import Profile
@@ -72,4 +72,8 @@ def questions(request):
     time_data = profile.get_completion_time()
     
     return render(request,'response/q2.html', {'questionlist':questionlist, 'user':user,'time':time_data})
+
+def allparticipants(request):
+    return render(request,'response/allparticipants.html')
+
 

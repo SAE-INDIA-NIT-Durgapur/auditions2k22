@@ -7,4 +7,5 @@ urlpatterns = [
    path('get_question/',views.questions,name='questions'), 
    path('questions/',views.questions, name='questions'),
    path('timerexpired/',views.timer_expired,name="time-expired"), 
+   path('allparticipants/',views.allparticipants,name="allparticipants"),
 ]
