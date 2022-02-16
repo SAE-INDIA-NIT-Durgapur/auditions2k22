@@ -201,12 +201,12 @@ body {
               
               {% if user.is_authenticated %}
 
-              <li><a class="nav-link" href="/response/">Home</a></li>
+              <li><a class="nav-link" href="/logout/">Logout</a></li>
           {% else %}
               <li><a class="btn btn-info" href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a></li>
           {% endif %}
                 
-                <li class="nav-item"> <a  class="nav-link" href="#contact">contact</a> </li>
+                {% comment %} <li class="nav-item"> <a  class="nav-link" href="#contact">contact</a> </li> {% endcomment %}
                
                
             </ul>
