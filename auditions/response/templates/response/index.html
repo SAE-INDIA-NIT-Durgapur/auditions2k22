@@ -17,8 +17,9 @@
 }
 
 body {
-    background: url('{% static 'response/images/bg.png' %}') no-repeat top center;
-    background-size: cover;
+    background: url("https://media.istockphoto.com/photos/neon-glowing-arrows-symbols-stock-image-picture-id1288697510?b=1&k=20&m=1288697510&s=170667a&w=0&h=eu3-w7wgLn08fysfViCTJOL9CEotfkeYfBT-JIjr8po=")!important;
+    background-size: cover!important;
+    background-position: center;
     height: 100vh;
     overflow-y: hidden;
 }
@@ -43,7 +44,7 @@ body {
 }
 .content h1{
   font-family: 'Century Gothic',sans-serif;
-  color: #f9f3f4;
+  color:var(--color-text);
   font-size: 400%;
   text-shadow: 0 0 300px #000;
   margin-bottom:10px;
@@ -78,7 +79,7 @@ body {
 
 }
 .content .btn:hover{
-  color: #fd6161;
+  color: blue;
 }
 @media only screen and (max-width: 768px)
 {
@@ -109,91 +110,161 @@ body {
 
 
 
-/cursor animation/
-.cursor{
-  position: fixed;
-  width:40px;
-  height: 40px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  left:0;
-  right:0;
-  pointer-events: none;
-  transform:translate(-50%,-50%);
-  transition: .1s
-}
-.cursor2{
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background-color:#fff;
-  border-radius: 50%;
-  left:0;
-  top:0;
-  pointer-events: none;
-  transform: translate(-50%,-50%);
-  transition: .15s;
-}
 
-
-
-
-   /*footer styling */
-   footer{
-    position:absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5) !important;
-    height: auto;
-    width: 100vw;
-    font-family: "Open Sans";
-    padding-top: 10px;
-    color: #fff;
-}
-.footer-content{
+/* footer */
+.gpt3__footer {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    text-align: center;
-}
-.footer-content h3{
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: capitalize;
-    line-height: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    background: #000002;
 }
 
-.socials{
-    list-style: none;
+.gpt3__footer-heading {
+    width: 100%;
+    text-align: center;
+
+    margin-bottom: 3rem;
+}
+
+.gpt3__footer-heading h1 {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 75px;
+}
+
+.gpt3__footer-btn {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: .5rem 1rem .5rem 1rem;
+    align-items: center;
+
+    padding: 1rem;
+    border: 1px solid #fff;
+    text-align: center;
+
+    margin-bottom: 10rem;
+    cursor: pointer;
 }
-.socials li{
-    margin: 10 0px;
+
+.gpt3__footer-btn p {
+    font-size: 18px;
+    font-family: var(--font-family);
+    line-height: 21px;
+    color: #fff;
+    word-spacing: 2px;
 }
-.socials a{
-    text-decoration: none;
+
+.gpt3__footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
+    text-align: left;
+}
+
+.gpt3__footer-links div {
+    width: 250px;
+    margin: 1rem;
+}
+
+.gpt3__footer-links_logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.gpt3__footer-links_logo img {
+    width: 118px;
+    height: 30px;
+
+    margin-bottom: 1rem;
+}
+
+.gpt3__footer-links_logo p {
+    font-family: var(--font-family);
+    font-size: 12px;
+    line-height: 15px;
     color: #fff;
 }
-.socials a i{
-    font-size: 1.2rem;
-    transition: color .4s ease;
 
+.gpt3__footer-links_div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 }
-.socials a:hover i{
-    color: #fd6161;
+
+.gpt3__footer-links_div h4 {
+    font-size: 14px;
+    line-height: 17px;
+    font-family: var(--font-family);
+    color: #fff;
+
+    margin-bottom: 0.9rem;
 }
+
+.gpt3__footer-links_div p {
+    font-size: 12px;
+    line-height: 15px;
+    font-family: var(--font-family);
+    color: #fff;
+
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+.gpt3__footer-copyright {
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.gpt3__footer-copyright p {
+    font-size: 12px;
+    font-family: var(--font-family);
+    line-height: 15px;
+    color: #fff;
+}
+
+@media screen and (max-width: 850px) {
+    .gpt3__footer-heading h1 {
+        font-size: 44px;
+        line-height: 50px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .gpt3__footer-heading h1 {
+        font-size: 34px;
+        line-height: 42px;
+    }
+
+    .gpt3__footer-links div {
+        margin: 1rem 0;
+    }
+
+    .gpt3__footer-btn p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .gpt3__footer-heading h1 {
+        font-size: 27px;
+        line-height: 38px;
+    }
+  }
     </style>
  <section class="b1">
   <div class="in1">
     <div class="content">
       <h1>SAE AUDITIONS</h1>
       <div class="rulebox">
-      <p>
+      <p >
         After you login you will have exactly three hours to answer all the questions after which all the responses will
         be auto submitted.<br>
         The questions which are mentioned compulsory should not be left unanswered.<br>
@@ -211,29 +282,33 @@ body {
 </section>
 <div class="cursor"></div>
     <div class="cursor2"></div>
-<footer>
-        <div class="footer-content">
-            <h3>Created By SAE NIT Durgapur</h3>
-            <ul class="socials">
-                <li><a href="https://www.facebook.com/SAENITD/"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com/sae.nitd/"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="https://www.saenitd.com/"><i class="fa fa-chrome"></i></a></li>
-                <li><a href="sae.nitdgp1@gmail.com"><i class="fa fa-envelope"></i></a></li>
-                <li><a href="https://www.linkedin.com/company/sae-india-nit-dgp-collegiate-chapter?originalSubdomain=in"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-        </div>
 
-    </footer>
+<!-- footer -->
+<div class="gpt3__footer section__padding" id="contact">
+  <div class="gpt3__footer-links">
+    <div class="gpt3__footer-links_logo">
+      <img src="../../../static/media/images/sae_logo.png" alt="gpt3_logo" />
+      <p>Society of Automotive Engineers NIT Durgapur Chapter Collegative, <br /> All Rights Reserved</p>
+    </div>
+    <div class="gpt3__footer-links_div">
+      <h4>Links</h4>
+      <p>Home</p>
+      <p>About Us</p>
+      <p>Contact</p>
+    </div>
+    <div class="gpt3__footer-links_div">
+      <h4>Get in touch</h4>
+      <p>emaild id</p>
+      <p>085-132567</p>
+      <p>website link</p>
+    </div>
+  </div>
 
+  <div class="gpt3__footer-copyright">
+    <p>@2022 SAEINDIA-NITD. All rights reserved.</p>
+  </div>
+</div>
 
-<!--cursor script-->
-  <script>
-    var cursor=document.querySelector(".cursor");
-    var cursor2=document.querySelector(".cursor2");
-    document.addEventListener("mousemove",function(e){
-      cursor.style.cssText = cursor2.style.cssText="left: " +e.clientX + "px; top: " + e.clientY + "px;";
-    });
-  </script>
 
 
 {% endblock %}

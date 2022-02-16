@@ -14,11 +14,9 @@
 }
 
 body {
-    background: url('{% static 'response/images/bg.png' %}');
-    background-size: cover;
-    -moz-background-size:cover;
-    -o-background-size:cover;
-    -webkit-background-size:cover;
+    /* background: url('https://media.istockphoto.com/photos/neon-glowing-arrows-symbols-stock-image-picture-id1288697510?b=1&k=20&m=1288697510&s=170667a&w=0&h=eu3-w7wgLn08fysfViCTJOL9CEotfkeYfBT-JIjr8po=')!important; */
+    background-size: cover!important;
+    background-position: center;
     height: 100vh;
     overflow-y: hidden;
 }
@@ -43,7 +41,7 @@ body {
 }
 .content h1{
   font-family: 'Century Gothic',sans-serif;
-  color: #f9f3f4;
+  color: var(--color-text);
   font-size: 400%;
   text-shadow: 0 0 300px #000;
   margin-bottom: 100px;
@@ -160,31 +158,11 @@ body {
 
     </div>
 </div>
+
+
 </section>
-<div class="cursor"></div>
-    <div class="cursor2"></div>
-<footer>
-        <div class="footer-content">
-            <h3>Created By SAE NIT Durgapur</h3>
-            <ul class="socials">
-                <li><a href="https://www.facebook.com/SAENITD/"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com/sae.nitd/"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="https://www.saenitd.com/"><i class="fa fa-chrome"></i></a></li>
-                <li><a href="sae.nitdgp1@gmail.com"><i class="fa fa-envelope"></i></a></li>
-                <li><a href="https://www.linkedin.com/company/sae-india-nit-dgp-collegiate-chapter?originalSubdomain=in"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
 
-        </div>
 
-    </footer>
-<!--cursor script-->
-  <script>
-    var cursor=document.querySelector(".cursor");
-    var cursor2=document.querySelector(".cursor2");
-    document.addEventListener("mousemove",function(e){
-      cursor.style.cssText = cursor2.style.cssText="left: " +e.clientX + "px; top: " + e.clientY + "px;";
-    });
-  </script>
 
 
 {% endblock %}

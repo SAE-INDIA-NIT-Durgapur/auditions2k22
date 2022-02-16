@@ -54,10 +54,8 @@ body {
     line-height: 1.4em;
     font-weight: 400;
     color: white;
-      background: url('{% static 'response/images/bg.png' %}') ;
-      -moz-background-size:cover;
-      -o-background-size:cover;
-      -webkit-background-size:cover;
+      background: url("https://wallpapercave.com/wp/c0MaGGu.jpg") ;
+      background-size: contain;
 }
 
 ::placeholder, select{
@@ -157,7 +155,7 @@ button {
     padding: 0.5em;
     color: white;
     border: 0;
-    background: #fd6161;
+    background: #2254b1;
 }
 
 /* --------------------------- */
@@ -187,9 +185,9 @@ button {
   margin: 10px 0;
   background: transparent;
   border: 0px;
-  border-bottom: 2px solid #fd6161;
+  border-bottom: 2px solid #2254b1;
   padding: 10px;
-  color: #fd6161;
+  color: #2254b1;
   width: 100%;
 }
 
@@ -199,19 +197,19 @@ button {
 
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #fd6161;
+  color: #2254b1;
 }
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #fd6161;
+  color: #2254b1;
 }
 :-ms-input-placeholder {
   /* IE 10+ */
-  color: #fd6161;
+  color: #2254b1;
 }
 
 button {
-    background: #fd6161;
+    background: #2254b1;
     text-align: center;
     padding: 15px;
     border-radius: 5px;
@@ -264,9 +262,7 @@ button {
                     {% for i in questionlist %}
                         <label for="name">{{ i.round }}</label>
                         <label for="name">{{ i.text|linebreaks}}</label>
-                        {% if i.type == 'I' %}
-                            <img style="heigth:300px;width:200px;" src="{{ i.image.url }}">
-                        {% endif %}
+                       
 
                         <div class="msg">
                             <textarea placeholder="Answer" name={{ i.round }}></textarea>
