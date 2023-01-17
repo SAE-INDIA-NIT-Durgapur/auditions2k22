@@ -8,7 +8,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-*{
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,6 +22,89 @@ body {
     background-position: center;
     height: 100vh;
     overflow-y: hidden;
+} */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Alumni Sans", sans-serif;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 80vh;
+	font-size: 1.2em;
+	background: #212121;
+	color: #fff;
+	text-transform: uppercase;
+	gap: 30px;
+  margin-bottom: -10px;
+
+}
+
+h1 {
+	font-size: 2.5em;
+	text-decoration: underline;
+	@media (max-width: 768px) {
+		font-size: 1.3em;
+	}
+}
+
+
+
+.text-shadow {
+	font-style: italic;
+	text-transform: uppercase;
+	color: transparent;
+	-webkit-text-stroke: #fff;
+	-webkit-text-stroke-width: 1px;
+	text-shadow: 2px 2px 10px rgb(100, 100, 135);
+	transition: all 0.5s ease-in-out;
+	text-align: center;
+	letter-spacing: 0.1em;
+	animation: flicker 0.5s ease-in-out infinite alternate;
+}
+
+.text-shadows {
+	font-style: italic;
+	text-transform: uppercase;
+	color: transparent;
+	-webkit-text-stroke: #fff;
+	-webkit-text-stroke-width: 1px;
+	text-shadow: 2px 2px 10px rgb(100, 100, 135);
+	transition: all 0.5s ease-in-out;
+	text-align: center;
+	letter-spacing: 0.1em;
+	animation: flicker 0.5s ease-in-out infinite alternate;
+  /* padding: 5px; */
+  margin-bottom: 15px;
+}
+
+.text-shadow:hover {
+		color: #fff;
+	}
+
+.tags small {
+	@media (max-width: 768px) {
+		font-size: 0.5em;
+	}
+}
+
+@keyframes flicker {
+	0% {
+		opacity: 0.7;
+		text-shadow: 2px 2px 10px blue;
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 2px 2px 20px blue;
+	}
 }
     .b1{
   width: 100%;
@@ -67,14 +150,14 @@ body {
   padding: 10px 0px 10px;
   border-radius: 2%;
 }
-.content .btn{
+.content {
   border-radius: 9px;
   color: #f9f3f4;
   text-decoration: none;
   font-family: 'Century Gothic',sans-serif;
   border: 3px solid;
   padding: 7px 100px;
-  font-weight: bold;
+  font-weight:100;
   margin-top: 10px;
 
 }
@@ -106,6 +189,157 @@ body {
 
 }
 
+/*Button Style*/
+:root {
+  --notch:polygon(0 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%);
+  --notch--outline:polygon(0 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 4px,4px 4px,4px calc(100% - 4px),calc(100% - 12px) calc(100% - 4px),calc(100% - 4px) calc(100% - 12px),calc(100% - 4px) 4px,0 4px);
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: white;
+  cursor: pointer;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.33));
+  font-family: Gotham Bold, system, sans-serif;
+  font-size: 20px;
+  height: 40px;
+  letter-spacing: 2px;
+  line-height: 15px;
+  outline: none;
+  overflow: visible;
+  padding: 20px 45px 35px 45px;
+  position: relative;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+  z-index: 1;
+  bottom: 15px;
+}
+.btn::before {
+  background: white;
+  bottom: 0;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 4px, 4px 4px, 4px calc(100% - 4px), calc(100% - 12px) calc(100% - 4px), calc(100% - 4px) calc(100% - 12px), calc(100% - 4px) 4px, 0 4px);
+          clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 4px, 4px 4px, 4px calc(100% - 4px), calc(100% - 12px) calc(100% - 4px), calc(100% - 4px) calc(100% - 12px), calc(100% - 4px) 4px, 0 4px);
+  -webkit-clip-path: var(--notch--outline);
+          clip-path: var(--notch--outline);
+  content: "";
+  display: block;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.5s ease;
+}
+.btn::after {
+  background: #fff;
+  bottom: 0;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  -webkit-clip-path: var(--notch);
+          clip-path: var(--notch);
+  content: "";
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.5s ease;
+  z-index: -1;
+}
+.btn:hover {
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.5));
+  transition: 0.52s ease 0.48s;
+  color: black;
+}
+.btn:hover::before {
+  -webkit-animation: turn-on--outline-before 1s;
+          animation: turn-on--outline-before 1s;
+}
+.btn:hover::after {
+  -webkit-animation: turn-on--outline-after 1s;
+          animation: turn-on--outline-after 1s;
+  opacity: 1;
+}
+
+@-webkit-keyframes turn-on--outline-before {
+  0% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 0.5;
+  }
+  16% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 0.5;
+  }
+  32% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  48% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes turn-on--outline-before {
+  0% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 0.5;
+  }
+  16% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 0.5;
+  }
+  32% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  48% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes turn-on--outline-after {
+  0% {
+    opacity: 0;
+  }
+  48% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes turn-on--outline-after {
+  0% {
+    opacity: 0;
+  }
+  48% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 
 
@@ -259,7 +493,7 @@ body {
     }
   }
     </style>
- <section class="b1">
+ <!-- <section class="b1">
   <div class="in1">
     <div class="content">
       <h1>SAE AUDITIONS</h1>
@@ -279,6 +513,22 @@ body {
 <a class="btn" href="/response/questions/">START</a>
     </div>
 </div>
+</section> -->
+<section>
+	<h1 class="text-shadow"> -- SAE AUDITIONS 2K23 -- </h1>
+	<div class="tags">
+		<p class="text-shadows">  You will have exactly three hours to answer all the questions after which all the responses will
+      be auto submitted.<br>
+    <p class="text-shadows">The questions which are mentioned compulsory should not be left unanswered.<br></p>
+    <p class="text-shadows">Once submitted, you cannot change the answers.<br></p>
+    <p class="text-shadows">Answer the following sections according to your preferences(You may answer multiple sections):<br></p>
+    <p class="text-shadows">Questions 18 to 25 [CREATIVE DESIGN AND PHOTOGRAPHY]<br></p>
+    <p class="text-shadows">Questions 26 to 32 [AUTOMOBILE]<br></p>
+    <p class="text-shadows">Questions 33 to 46 [ROBOTICS]<br></p>
+    <p class="text-shadows">Questions 47 to 48 [WEB DEVELOPMENT]<br></p>
+    
+	</div>
+  <a class="btn" href="/response/questions/">Start</a>
 </section>
 <div class="cursor"></div>
     <div class="cursor2"></div>
