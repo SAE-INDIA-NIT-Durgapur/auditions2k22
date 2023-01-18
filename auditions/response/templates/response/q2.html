@@ -50,7 +50,7 @@
           line-height: 1.4em;
           font-weight: 400;
           color: white;
-            background: url("../../static/response/images/bg-1-SAE.webp") ;
+            background: url("https://i.pinimg.com/originals/88/15/63/881563d6444b370fa4ceea0c3183bb4c.gif") ;
             background-size: contain;
             
       }
@@ -95,7 +95,7 @@
       }
 
       .form-section {
-          max-width: 90%;
+          max-width: 70%;
           justify-content: center;
           align-items: center;
           margin-top: 50px;
@@ -268,7 +268,7 @@
           padding: 20px !important;
           border-radius: 10px !important;
           font-family: 'poppins', sans-serif;
-          margin: 10px auto 10px auto !important;
+          margin: 15px auto 15px auto !important;
           max-width: 1200px !important;
       }
 
@@ -364,12 +364,12 @@
         var distance = countDownDate - now;
 
         // Time calculations for days, hours, minutes and seconds
-        // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        // var hours = Math.floor(
-        //   (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        // );
-        // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -379,7 +379,7 @@ var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         // Display the result in the element with id="demo"
         document.getElementById("demo").innerHTML =
           hours + " : " + minutes + " : " + seconds + " ";
-          var countDownDate = new Date(new Date().getTime() + 15*60*60*1000).getTime();
+          
 
         // If the count down is finished, write some text
         if (distance < 0) {

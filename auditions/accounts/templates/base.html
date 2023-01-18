@@ -144,17 +144,17 @@ body {
 
 .navbar-toggler {
     padding: .20rem .50rem;
+    position: relative;
     font-size: 1.25rem;
     line-height: 1;
     background-color: transparent;
     border: 1px solid white
 }
 
-.nav-link {
-    color: #fff !important
-}
+
 
 .wrapper {
+    display: flex;
     width: 100%;
     position: absolute;
     height: 100%;
@@ -186,6 +186,19 @@ body {
 .all-show {
     z-index: 10
 }
+
+.nav-link{
+    position: absolute;
+    right: 10%;
+    top: 25%;
+    border:2px ;
+}
+
+.nav-link:hover{
+   background-color: green;
+  
+}
+
   </style>
   {% endblock styles %}
 
